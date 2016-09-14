@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PodCast = () => (
+const PodCast = (props) => (
 	<section id="the-podcast">
 		<header>
 			<img className="cover" src="https://jovemnerd.com.br/wp-content/themes/jovemnerd/assets/images/nc-feed.jpg" />
@@ -11,14 +11,9 @@ const PodCast = () => (
 			</div>
 		</header>
 		<ul id="podcast-episodes">
-			<li>
-				<h3>NerdCast 531 - Bandas de garagem 2</h3>
-				<button>►</button>
-			</li>
-			<li>
-				<h3>NerdCast 531 - Bandas de garagem 2</h3>
-				<button>►</button>
-			</li>
+			{ props.episodes.map( (title, index) => (
+				<li key={index}><h3>{title}</h3><button>►</button></li>
+			)) }
 		</ul>
 	</section>
 )

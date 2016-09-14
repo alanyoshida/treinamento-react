@@ -1,19 +1,21 @@
 import React from 'react'
 import { render } from 'react-dom'
-import Player from './player'
-import MyFeeds from './myfeeds'
-import PodCast from './podcast'
+import Player from './components/player'
+import MyFeeds from './components/myfeeds'
+import PodCast from './components/podcast'
+import props from './data'
+import * as selectors from './selectors'
 
 require("./style.scss")
 
 const App = () => (
 	<section id="stage">
 
-		<MyFeeds />
+		<MyFeeds {...props.feeds} />
 
-		<PodCast />
+		<PodCast {...props.podcast} />
 
-		<Player />
+		<Player title={props.player.title} file={props.player.file} mediatype={props.player.mediatype} />
 
 	</section>
 )
